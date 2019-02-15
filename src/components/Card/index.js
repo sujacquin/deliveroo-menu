@@ -11,16 +11,16 @@ class Card extends React.Component {
 
     }
     render() {
-        return (<div className="card">
+        return (<div className="card" onClick={() => this.props.addItem({ name: this.props.title, price: this.props.price })} >
             <div className="description"><h2>{this.props.title}</h2>
-                <LinesEllipsis className="description" text={this.props.desc}
+                <LinesEllipsis style={{ padding: "0" }} className="description" text={this.props.desc}
                     maxLine='2'
                     ellipsis='...'
                     trimRight
                     basedOn='words' />
                 <h2 style={{ color: "#838585" }}>{this.props.price} €</h2></div>
             {this.renderImage()}
-        </div>)
+        </ div>)
 
     }
 }

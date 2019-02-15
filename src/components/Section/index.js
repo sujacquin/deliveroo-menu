@@ -17,7 +17,7 @@ class Section extends React.Component {
         return (<div className="section" name={this.props.name}><h1>{this.props.name}</h1>
             <div className="cards">
                 {this.state.menu.map((x, index) => {
-                    return (<Card key={index} title={x.title} desc={x.description} price={x.price} img={x.picture} />)
+                    return (<Card key={index} title={x.title} desc={x.description} price={x.price} img={x.picture} addItem={this.props.addItem} />)
                 })}
             </div></div>)
     }
