@@ -1,0 +1,11 @@
+.section h1 {
+    margin-left:7%;
+}
+
+.cards {
+    width: 86%;
+    margin:auto;
+    display:flex;
+    flex-wrap: wrap;
+
+}

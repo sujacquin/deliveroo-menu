@@ -1,0 +1,17 @@
+
+.header {
+    width: 80%;
+    margin:auto;
+    display:flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 20px 0
+}
+
+.header img {
+    height:160px;
+    width:370px;
+    object-fit: cover;
+    margin-left: 10px;
+}
+

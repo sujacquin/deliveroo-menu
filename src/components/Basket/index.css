@@ -1,0 +1,27 @@
+.Basket {
+    min-height: 200px;
+    text-align: center;
+    font-family:"IBM Plex Sans";
+    font-weight: 300;
+    position:absolute;
+    right:10%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+
+}
+
+button {
+    background-color:#B9C3C3;
+    color:#8C9B9B;
+    font-family:"IBM Plex Sans";
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    width: 300px;
+    padding:17px;
+    margin: 5px;
+    border-radius: 5px;
+
+
+}
