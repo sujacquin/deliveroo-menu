@@ -15,6 +15,7 @@ class App extends Component {
     menu: {},
     basket: [],
     total: 0
+
   }
 
   async componentDidMount() {
@@ -45,7 +46,7 @@ class App extends Component {
     newBasket.forEach(x => totalBasket = totalBasket + x.price * x.quantity);
 
     await this.setState({ basket: newBasket, total: totalBasket })
-    console.log(this.state.total);
+
 
   }
 
@@ -63,7 +64,8 @@ class App extends Component {
       newBasket.push({
         name: item.name,
         quantity: 1,
-        price: Number(item.price)
+        price: Number(item.price),
+        id: item.id
       })
     }
 
@@ -86,7 +88,7 @@ class App extends Component {
 
       <ul>{Object.keys(this.state.menu).map((section, index) => {
         if (this.state.menu[section].length > 0) {
-          return (<Section key={index} name={section} id={section} info={this.state.menu[section]} addItem={this.addItem} />)
+          return (<Section key={index} name={section} id={section} info={this.state.menu[section]} addItem={this.addItem} basket={this.state.basket} />)
         }
 
       })}

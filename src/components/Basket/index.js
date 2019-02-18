@@ -12,8 +12,24 @@ class Basket extends React.Component {
     state = {
         delivery: 2.5,
         service: 0.2,
-        tips: 0.00
+        tips: 0.00,
+        isService: false,
+        isDelivery: false
     }
+
+    handleClick = async (event) => {
+        if (event === "delivery") {
+            const status = this.state.isDelivery ? false : true;
+            await this.setState({ isDelivery: status })
+
+        } else {
+            const status = this.state.isService ? false : true;
+            await this.setState({ isService: status })
+
+        }
+    }
+
+
 
     addTip = async (event) => {
 
@@ -26,6 +42,19 @@ class Basket extends React.Component {
             await this.setState({ tips: this.state.tips + 1 })
         }
     }
+
+    renderDeliveryInfo = () => {
+        if (this.state.isDelivery) {
+            return <div className="infomessage">Ce montant peut varier en fonction d’éléments tels que la distance et la durée de livraison.</div>
+        }
+    }
+
+    renderServiceInfo = () => {
+        if (this.state.isService) {
+            return <div className="infomessage">Ce montant peut varier en fonction d’éléments tels que la distance et la durée de livraison.</div>
+        }
+    }
+
 
 
 
@@ -57,9 +86,11 @@ class Basket extends React.Component {
                     < div className="text" style={{ color: "#33D6C7" }}> Précisez vos allergies
                         </div>
                     <div className="intermediate">
+                        <div>{this.renderDeliveryInfo()}</div>
+                        <div>{this.renderServiceInfo()}</div>
                         <div className="text"><span>Sous-total</span> <span>{(this.props.total).toFixed(2)}€</span></div>
-                        <div className="text"><span>Frais de livraison</span><span><FontAwesomeIcon icon="info-circle" style={{ color: "#ABADAD" }} />{this.state.delivery.toFixed(2)}€</span></div>
-                        <div className="text"><span>Frais de service</span><span><FontAwesomeIcon icon="info-circle" style={{ color: "#ABADAD" }} />{this.state.service.toFixed(2)}€</span></div>
+                        <div className="text"><span>Frais de livraison</span><span><FontAwesomeIcon icon="info-circle" style={{ color: "#ABADAD" }} onClick={() => this.handleClick("delivery")} />{this.state.delivery.toFixed(2)}€</span></div>
+                        <div className="text"><span>Frais de service</span><span><FontAwesomeIcon icon="info-circle" style={{ color: "#ABADAD" }} onClick={() => this.handleClick("service")} />{this.state.service.toFixed(2)}€</span></div>
                     </div>
                     <div className="total">
                         <div className="text"><span>Pourboire livreur</span><span> <FontAwesomeIcon icon="minus-circle" style={{ color: "#00CCBC" }} onClick={() => { this.addTip("minus") }} /><FontAwesomeIcon icon="plus-circle" style={{ color: "#00CCBC" }} onClick={() => { this.addTip("plus") }} />{this.state.tips.toFixed(2)}€</span></div>

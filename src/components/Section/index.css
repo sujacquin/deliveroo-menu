@@ -3,8 +3,8 @@
 }
 
 .cards {
-    width: 86%;
-    margin:auto;
+    width: 70%;
+    margin-left:7%;
     display:flex;
     flex-wrap: wrap;
 

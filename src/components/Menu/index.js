@@ -2,7 +2,7 @@ import React from "react";
 import './index.css';
 import Basket from "../Basket";
 import scrollToComponent from 'react-scroll-to-component';
-import { Link, animateScroll as scroll } from "react-scroll"
+import { Link } from "react-scroll"
 
 
 class Menu extends React.Component {
@@ -20,7 +20,7 @@ class Menu extends React.Component {
                         offset={-70}
                         duration={500} className="link" key={index}
                         onClick={() => scrollToComponent(this.props.id, { offset: 0, align: 'top', duration: 1500 })}>{section}</Link>
-                } else { }
+                }
             })}
         </ul>
             <Basket basket={this.props.basket} total={this.props.total} handleClick={this.props.handleClick} />

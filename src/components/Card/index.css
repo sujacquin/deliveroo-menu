@@ -1,4 +1,5 @@
-.card {
+.card,
+.cardClicked {
     display:flex;
     flex-direction: row;
     height: 130px;;
@@ -12,13 +13,18 @@
 
 }
 
-.card:hover{
+.cardClicked {
+border-left: solid 5px #4CD9CB;
+}
+
+.card:hover, .cardClicked:hover{
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 
-.card img {
+.card img,
+.cardClicked img {
     height: 100px;
     width: 100px;
     object-fit: cover;
