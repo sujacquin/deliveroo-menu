@@ -1,6 +1,9 @@
 import React from "react";
 import './index.css'
 import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 class Card extends React.Component {
 
@@ -13,43 +16,34 @@ class Card extends React.Component {
 
     }
 
+    renderClass = (classe, quantity) => {
+        return (<div className={classe} onClick={() => this.props.addItem({ name: this.props.title, price: this.props.price, id: this.props.id })} >
+            <div className="description"><h2>{this.props.title}</h2>
+                <ResponsiveEllipsis style={{ padding: "0" }} className="description" text={(quantity) ? `${quantity}x ${this.props.desc}` : this.props.desc}
+                    maxLine={2}
+                    ellipsis='...'
+                    trimRight
+                    basedOn='letters' />
+                <h2 style={{ color: "#838585" }}>{this.props.price} €</h2></div>
+            {this.renderImage()}
+        </ div>)
+
+    }
     renderCard() {
 
         for (let i = 0; i < this.props.basket.length; i++) {
-
             if (this.props.title === this.props.basket[i].name) {
+                return (<>{this.renderClass("cardClicked", this.props.basket[i].quantity)}</>)
 
-                return (<div className="cardClicked" onClick={() => this.props.addItem({ name: this.props.title, price: this.props.price, id: this.props.id })} >
-                    <div className="description"><h2>{this.props.title}</h2>
-                        <LinesEllipsis style={{ padding: "0" }} className="description" text={`${this.props.basket[i].quantity}x ${this.props.desc}`}
-                            maxLine='2'
-                            ellipsis='...'
-                            trimRight
-                            basedOn='words' />
-                        <h2 style={{ color: "#838585" }}>{this.props.price} €</h2></div>
-                    {this.renderImage()}
-                </ div>)
             }
 
         }
 
-        return (<><div className="card" onClick={() => this.props.addItem({ name: this.props.title, price: this.props.price })} >
-            <div className="description"><h2>{this.props.title}</h2>
-                <LinesEllipsis style={{ padding: "0" }} className="description" text={this.props.desc}
-                    maxLine='2'
-                    ellipsis='...'
-                    trimRight
-                    basedOn='words' />
-                <h2 style={{ color: "#838585" }}>{this.props.price} €</h2></div>
-            {this.renderImage()}
-        </ div></>)
+        return (<>{this.renderClass("card")}</>)
     }
 
-
-
-
     render() {
-        return (<div>{this.renderCard()}</div>)
+        return (<>{this.renderCard()}</>)
     }
 }
 
