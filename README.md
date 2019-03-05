@@ -6,7 +6,7 @@ This project is a replica of the Deliveroo menu page (for the restaurant Pain Qu
 
 ## Usage Example
 
-See Demo: https://deliveroo-susana.herokuapp.com/
+See Demo: https://sujacquin.github.io/deliveroo-menu/
 
 ![deliveroo](https://user-images.githubusercontent.com/46267460/53764792-8bbb3e00-3ece-11e9-99c7-a3ed9ce29d29.gif)
 
