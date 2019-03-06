@@ -22,22 +22,6 @@ Add tip
 
 Mobile Response
 
-## Running the project
-
-Clone this repository :
-```bash
-https://github.com/sujacquin/deliveroo-menu.git
-cd deliveroo-menu
-```
-
-Start the server
-```bash
-npm start
-```
-Build the projet
-```bash
-npm run build
-```
 
 ## Built With
 html <br>
